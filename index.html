@@ -1,739 +1,838 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CVBoost - Professional CV Builder</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional CV Builder</title>
 
-  <link rel="stylesheet" href="style.css">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+header {
+    background: #0f172a;
+    color: white;
+    padding: 25px 15px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 0 8px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 25px auto;
+    padding: 15px;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.card h2 {
+    margin-top: 0;
+    color: #0f172a;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+button {
+    border: none;
+    padding: 11px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.add-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.delete-btn {
+    background: #dc2626;
+    color: white;
+    margin-left: 5px;
+}
+
+.save-btn {
+    background: #16a34a;
+    color: white;
+}
+
+.preview-btn {
+    background: #7c3aed;
+    color: white;
+}
+
+.item {
+    border: 1px solid #e2e8f0;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 12px;
+    background: #f8fafc;
+}
+
+.photo-area {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#photoPreview {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #2563eb;
+    display: none;
+    margin: 10px auto;
+}
+
+.actions {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.actions button {
+    margin: 5px;
+}
+
+#cvPreview {
+    display: none;
+    background: white;
+    padding: 40px;
+    max-width: 850px;
+    margin: 30px auto;
+    box-shadow: 0 3px 15px rgba(0,0,0,.15);
+}
+
+.cv-header {
+    text-align: center;
+    border-bottom: 2px solid #111827;
+    padding-bottom: 15px;
+}
+
+.cv-header img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.cv-section {
+    margin-top: 25px;
+}
+
+.cv-section h2 {
+    border-bottom: 1px solid #94a3b8;
+    padding-bottom: 5px;
+}
+
+.cv-item {
+    margin-bottom: 15px;
+}
+
+@media(max-width:700px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    #cvPreview {
+        padding: 20px;
+    }
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #cvPreview,
+    #cvPreview * {
+        visibility: visible;
+    }
+
+    #cvPreview {
+        display: block !important;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        box-shadow: none;
+    }
+}
+</style>
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<header>
+    <h1>Professional CV Builder</h1>
+    <p>Create, edit and print your professional CV</p>
+</header>
 
-<nav class="navbar">
-  <div class="logo">CVBoost</div>
+<div class="container">
 
-  <div>
-    <a href="#features">Features</a>
-    <a href="#builder">Create CV</a>
-  </div>
-</nav>
+<!-- PERSONAL INFORMATION -->
+<div class="card">
+<h2>Personal Information</h2>
 
+<div class="photo-area">
+    <label>Profile Photo</label>
+    <input type="file" id="photo" accept="image/*">
+    <img id="photoPreview">
+</div>
 
-<!-- ================= HERO ================= -->
+<div class="grid">
 
-<section class="hero">
+<div>
+<label>Full Name</label>
+<input id="name" placeholder="e.g. Duncan Ochieng">
+</div>
 
-  <h1>Create Your Professional CV</h1>
+<div>
+<label>Address</label>
+<input id="address" placeholder="e.g. P.O. Box 123, Nairobi">
+</div>
 
-  <p>
-    Build a modern, professional CV easily using CVBoost.
-    Add your education, employment, skills, achievements,
-    referees and supporting documents.
-  </p>
+<div>
+<label>Telephone</label>
+<input id="telephone" placeholder="e.g. +254 7XX XXX XXX">
+</div>
 
-  <button type="button" onclick="scrollToBuilder()">
-    Create My CV
-  </button>
+<div>
+<label>Email</label>
+<input id="email" type="email" placeholder="e.g. example@gmail.com">
+</div>
 
-</section>
+<div>
+<label>Nationality</label>
+<input id="nationality" placeholder="e.g. Kenyan">
+</div>
 
+<div>
+<label>Date of Birth</label>
+<input id="dob" type="date">
+</div>
 
-<!-- ================= FEATURES ================= -->
+</div>
+</div>
 
-<section class="features" id="features">
 
-  <h2>Everything You Need</h2>
+<!-- PROFILE -->
+<div class="card">
+<h2>Professional Profile</h2>
 
-  <div class="feature-grid">
+<textarea id="profile"
+placeholder="Write a short professional summary about yourself, your education, strengths and career goals."></textarea>
 
-    <div class="feature-card">
-      <h3>Professional Templates</h3>
-      <p>Choose from modern, professional and creative CV designs.</p>
-    </div>
+</div>
 
-    <div class="feature-card">
-      <h3>Easy CV Builder</h3>
-      <p>Enter your information and generate your CV instantly.</p>
-    </div>
 
-    <div class="feature-card">
-      <h3>Supporting Documents</h3>
-      <p>Add certificates and other supporting documents.</p>
-    </div>
+<!-- EDUCATION -->
+<div class="card">
+<h2>Education</h2>
 
-  </div>
+<div id="educationList"></div>
 
-</section>
+<button class="add-btn" onclick="addEducation()">+ Add Education</button>
 
+</div>
 
-<!-- ================= BUILDER ================= -->
 
-<section class="builder" id="builder">
+<!-- EXPERIENCE -->
+<div class="card">
+<h2>Work Experience</h2>
 
-  <div class="builder-container">
+<div id="experienceList"></div>
 
-    <h2>Build Your CV</h2>
+<button class="add-btn" onclick="addExperience()">+ Add Experience</button>
 
+</div>
 
-    <!-- TEMPLATE -->
 
-    <div class="form-section">
+<!-- SKILLS -->
+<div class="card">
+<h2>Skills</h2>
 
-      <h3>1. Choose a CV Template</h3>
+<div id="skillsList"></div>
 
-      <div class="template-selector">
+<button class="add-btn" onclick="addSkill()">+ Add Skill</button>
 
-        <button
-          type="button"
-          class="template-card active"
-          onclick="selectTemplate('modern', this)"
-        >
-          <h3>Modern</h3>
-          <p>Clean and modern design</p>
-        </button>
+</div>
 
-        <button
-          type="button"
-          class="template-card"
-          onclick="selectTemplate('professional', this)"
-        >
-          <h3>Professional</h3>
-          <p>Formal business design</p>
-        </button>
 
-        <button
-          type="button"
-          class="template-card"
-          onclick="selectTemplate('creative', this)"
-        >
-          <h3>Creative</h3>
-          <p>Stylish creative design</p>
-        </button>
-
-      </div>
+<!-- HOBBIES -->
+<div class="card">
+<h2>Hobbies & Interests</h2>
 
-    </div>
+<div id="hobbiesList"></div>
 
+<button class="add-btn" onclick="addHobby()">+ Add Hobby</button>
 
-    <!-- PERSONAL INFORMATION -->
+</div>
 
-    <div class="form-section">
 
-      <h3>2. Personal Information</h3>
+<!-- ACHIEVEMENTS -->
+<div class="card">
+<h2>Achievements</h2>
 
-      <div class="form-group">
-        <label>Full Name</label>
-        <input
-          type="text"
-          id="name"
-          placeholder="e.g. John Kamau"
-        >
-      </div>
+<div id="achievementsList"></div>
 
-      <div class="form-group">
-        <label>Address</label>
-        <input
-          type="text"
-          id="address"
-          placeholder="e.g. Nairobi, Kenya"
-        >
-      </div>
+<button class="add-btn" onclick="addAchievement()">+ Add Achievement</button>
 
-      <div class="form-group">
-        <label>Telephone</label>
-        <input
-          type="tel"
-          id="phone"
-          placeholder="e.g. +254 712 345 678"
-        >
-      </div>
+</div>
 
-      <div class="form-group">
-        <label>Email</label>
-        <input
-          type="email"
-          id="email"
-          placeholder="e.g. john@example.com"
-        >
-      </div>
 
-      <div class="form-group">
-        <label>Nationality</label>
-        <input
-          type="text"
-          id="nationality"
-          placeholder="e.g. Kenyan"
-        >
-      </div>
+<!-- CERTIFICATES -->
+<div class="card">
+<h2>Certificates & Documents</h2>
 
-      <div class="form-group">
-        <label>Date of Birth</label>
-        <input
-          type="date"
-          id="dob"
-        >
-      </div>
+<p>You can attach certificates, degrees and other documents.</p>
 
-      <div class="form-group">
+<div id="documentsList"></div>
 
-        <label>Profile Photo</label>
+<button class="add-btn" onclick="addDocument()">+ Add Document</button>
 
-        <input
-          type="file"
-          id="photo"
-          accept=".jpg,.jpeg,.png"
-        >
+</div>
 
-        <p class="photo-help">
-          Recommended: clear passport-style photo.
-        </p>
 
-      </div>
+<div class="actions">
 
-    </div>
+<button class="save-btn" onclick="saveData()">
+💾 Save CV
+</button>
 
+<button class="preview-btn" onclick="generateCV()">
+👁️ Preview CV
+</button>
 
-    <!-- PROFILE -->
+<button class="preview-btn" onclick="window.print()">
+📄 Print / Save PDF
+</button>
 
-    <div class="form-section">
+</div>
 
-      <h3>3. Professional Profile</h3>
+</div>
 
-      <p class="form-help">
-        Briefly introduce yourself, your strengths,
-        experience and career goals.
-      </p>
 
-      <textarea
-        id="summary"
-        placeholder="Example: Motivated and hardworking Electrical and Computer Engineering student with strong interest in technology, problem-solving and innovation. A quick learner with good teamwork and communication skills, seeking opportunities to develop practical skills and gain professional experience."
-      ></textarea>
+<!-- CV PREVIEW -->
 
-    </div>
+<div id="cvPreview">
 
+<div class="cv-header">
 
-    <!-- EDUCATION -->
+<img id="cvPhoto">
 
-    <div class="form-section">
+<h1 id="cvName">Your Name</h1>
 
-      <h3>4. Education</h3>
+<p id="cvContact"></p>
 
-      <p class="form-help">
-        Add your academic qualifications. Include the year,
-        course or qualification and school/institution.
-      </p>
+</div>
 
-      <div id="educationContainer">
 
-        <div class="education-entry">
+<div class="cv-section">
+<h2>Professional Profile</h2>
+<p id="cvProfile"></p>
+</div>
 
-          <h4>Education</h4>
 
-          <div class="form-group">
+<div class="cv-section">
+<h2>Education</h2>
+<div id="cvEducation"></div>
+</div>
 
-            <label>Year / Period</label>
 
-            <input
-              type="text"
-              class="education-year"
-              placeholder="e.g. 2026 - Present"
-            >
+<div class="cv-section">
+<h2>Work Experience</h2>
+<div id="cvExperience"></div>
+</div>
 
-          </div>
 
-          <div class="form-group">
+<div class="cv-section">
+<h2>Skills</h2>
+<div id="cvSkills"></div>
+</div>
 
-            <label>Course / Qualification</label>
 
-            <input
-              type="text"
-              class="education-course"
-              placeholder="e.g. B.Tech Electrical & Computer Engineering"
-            >
+<div class="cv-section">
+<h2>Hobbies & Interests</h2>
+<div id="cvHobbies"></div>
+</div>
 
-          </div>
 
-          <div class="form-group">
+<div class="cv-section">
+<h2>Achievements</h2>
+<div id="cvAchievements"></div>
+</div>
 
-            <label>School / Institution</label>
 
-            <input
-              type="text"
-              class="education-school"
-              placeholder="e.g. Kirinyaga University"
-            >
+<div class="cv-section">
+<h2>Certificates & Documents</h2>
+<div id="cvDocuments"></div>
+</div>
 
-          </div>
+</div>
 
-        </div>
 
-      </div>
+<script>
 
-      <button
-        type="button"
-        class="add-button"
-        onclick="addEducation()"
-      >
-        + Add Education
-      </button>
+let photoData = "";
 
-    </div>
 
+/* PHOTO */
 
-    <!-- EMPLOYMENT -->
+document.getElementById("photo").addEventListener("change", function(e) {
 
-    <div class="form-section">
+    const file = e.target.files[0];
 
-      <h3>5. Employment / Work Experience</h3>
+    if (!file) return;
 
-      <p class="form-help">
-        Add jobs, internships, attachments or volunteer work.
-      </p>
+    const reader = new FileReader();
 
-      <div id="employmentContainer">
+    reader.onload = function(event) {
 
-        <div class="employment-entry">
+        photoData = event.target.result;
 
-          <h4>Employment</h4>
+        const img = document.getElementById("photoPreview");
 
-          <div class="form-group">
+        img.src = photoData;
+        img.style.display = "block";
+    };
 
-            <label>Year / Period</label>
+    reader.readAsDataURL(file);
+});
 
-            <input
-              type="text"
-              class="employment-year"
-              placeholder="e.g. 2025 - 2026"
-            >
 
-          </div>
+/* ADD EDUCATION */
 
-          <div class="form-group">
+function addEducation() {
 
-            <label>Job Title</label>
+    const div = document.createElement("div");
 
-            <input
-              type="text"
-              class="employment-title"
-              placeholder="e.g. Sales Assistant"
-            >
+    div.className = "item";
 
-          </div>
+    div.innerHTML = `
+        <div class="grid">
 
-          <div class="form-group">
-
-            <label>Company / Organization</label>
-
-            <input
-              type="text"
-              class="employment-company"
-              placeholder="e.g. ABC Company"
-            >
-
-          </div>
-
-          <div class="form-group">
-
-            <label>Responsibilities / Achievements</label>
-
-            <textarea
-              class="employment-description"
-              placeholder="Describe what you did, your responsibilities and achievements."
-            ></textarea>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <button
-        type="button"
-        class="add-button"
-        onclick="addEmployment()"
-      >
-        + Add Employment
-      </button>
-
-    </div>
-
-
-    <!-- SKILLS -->
-
-    <div class="form-section">
-
-      <h3>6. Skills</h3>
-
-      <p class="form-help">
-        List your useful abilities. Separate each skill
-        with a comma.
-      </p>
-
-      <textarea
-        id="skills"
-        placeholder="Example: Communication, Teamwork, Computer Skills, Problem Solving, Leadership, Time Management, Microsoft Word, Research"
-      ></textarea>
-
-    </div>
-
-
-    <!-- HOBBIES -->
-
-    <div class="form-section">
-
-      <h3>7. Hobbies / Interests</h3>
-
-      <p class="form-help">
-        List activities you genuinely enjoy.
-        Separate each hobby with a comma.
-      </p>
-
-      <textarea
-        id="interests"
-        placeholder="Example: Reading, Coding, Football, Music, Travelling, Technology, Community Service"
-      ></textarea>
-
-    </div>
-
-
-    <!-- ACHIEVEMENTS -->
-
-    <div class="form-section">
-
-      <h3>8. Certificates & Achievements</h3>
-
-      <p class="form-help">
-        Add awards, certificates, leadership positions,
-        competitions, projects or other accomplishments.
-      </p>
-
-      <textarea
-        id="certificates"
-        placeholder="Example: Computer Applications Certificate, Class Representative, School Football Team Member, Programming Competition Participant"
-      ></textarea>
-
-    </div>
-
-
-    <!-- SUPPORTING DOCUMENTS -->
-
-    <div class="form-section">
-
-      <h3>9. Supporting Documents</h3>
-
-      <p class="form-help">
-        Add certificates, academic documents or other
-        documents supporting your CV.
-      </p>
-
-      <div id="documentsContainer">
-
-        <div class="document-entry">
-
-          <h4>Supporting Document</h4>
-
-          <div class="form-group">
-
-            <label>Document Name</label>
-
-            <input
-              type="text"
-              class="document-name"
-              placeholder="e.g. KCSE Certificate"
-            >
-
-          </div>
-
-          <div class="form-group">
-
+            <div>
             <label>Institution</label>
+            <input class="edu-school" placeholder="e.g. Kirinyaga University">
+            </div>
 
-            <input
-              type="text"
-              class="document-institution"
-              placeholder="e.g. School / University"
-            >
+            <div>
+            <label>Qualification</label>
+            <input class="edu-course" placeholder="e.g. B.Tech Electrical & Computer Engineering">
+            </div>
 
-          </div>
+            <div>
+            <label>Start Year</label>
+            <input class="edu-start" placeholder="e.g. 2026">
+            </div>
 
-          <div class="form-group">
-
-            <label>Year</label>
-
-            <input
-              type="text"
-              class="document-year"
-              placeholder="e.g. 2025"
-            >
-
-          </div>
-
-          <div class="form-group">
-
-            <label>Upload Document</label>
-
-            <input
-              type="file"
-              class="document-file"
-              accept=".pdf,.jpg,.jpeg,.png"
-            >
-
-          </div>
+            <div>
+            <label>End Year</label>
+            <input class="edu-end" placeholder="e.g. 2030">
+            </div>
 
         </div>
 
-      </div>
+        <button class="delete-btn" onclick="this.parentElement.remove()">Delete</button>
+    `;
 
-      <button
-        type="button"
-        class="add-button"
-        onclick="addDocument()"
-      >
-        + Add Document
-      </button>
-
-    </div>
+    document.getElementById("educationList").appendChild(div);
+}
 
 
-    <!-- REFEREES -->
+/* ADD EXPERIENCE */
 
-    <div class="form-section">
+function addExperience() {
 
-      <h3>10. Referees</h3>
+    const div = document.createElement("div");
 
-      <p class="form-help">
-        Add people who can provide professional or academic
-        references for you.
-      </p>
+    div.className = "item";
 
-      <div id="refereesContainer">
+    div.innerHTML = `
+        <div class="grid">
 
-        <div class="referee-entry">
+            <div>
+            <label>Company / Organization</label>
+            <input class="exp-company" placeholder="Company name">
+            </div>
 
-          <h4>Referee</h4>
-
-          <div class="form-group">
-
-            <label>Full Name</label>
-
-            <input
-              type="text"
-              class="referee-name"
-              placeholder="e.g. Dr. John Mwangi"
-            >
-
-          </div>
-
-          <div class="form-group">
-
+            <div>
             <label>Position</label>
+            <input class="exp-position" placeholder="Job title">
+            </div>
 
-            <input
-              type="text"
-              class="referee-position"
-              placeholder="e.g. Lecturer"
-            >
+            <div>
+            <label>Start</label>
+            <input class="exp-start" placeholder="e.g. 2025">
+            </div>
 
-          </div>
-
-          <div class="form-group">
-
-            <label>Organization</label>
-
-            <input
-              type="text"
-              class="referee-organization"
-              placeholder="e.g. University / Company"
-            >
-
-          </div>
-
-          <div class="form-group">
-
-            <label>Telephone</label>
-
-            <input
-              type="tel"
-              class="referee-phone"
-              placeholder="+254..."
-            >
-
-          </div>
-
-          <div class="form-group">
-
-            <label>Email</label>
-
-            <input
-              type="email"
-              class="referee-email"
-              placeholder="referee@example.com"
-            >
-
-          </div>
+            <div>
+            <label>End</label>
+            <input class="exp-end" placeholder="e.g. 2026">
+            </div>
 
         </div>
 
-      </div>
+        <label>Responsibilities</label>
 
-      <button
-        type="button"
-        class="add-button"
-        onclick="addReferee()"
-      >
-        + Add Referee
-      </button>
+        <textarea class="exp-description"
+        placeholder="Describe your responsibilities and achievements"></textarea>
 
-    </div>
+        <button class="delete-btn" onclick="this.parentElement.remove()">Delete</button>
+    `;
 
+    document.getElementById("experienceList").appendChild(div);
+}
 
-    <!-- GENERATE -->
 
-    <div class="generate-area">
+/* ADD SKILL */
 
-      <button
-        type="button"
-        class="primary-button"
-        onclick="generateCV()"
-      >
-        Generate My CV
-      </button>
+function addSkill() {
 
-    </div>
+    const div = document.createElement("div");
 
-  </div>
+    div.className = "item";
 
-</section>
+    div.innerHTML = `
+        <input class="skill"
+        placeholder="e.g. Computer Programming">
 
+        <button class="delete-btn"
+        onclick="this.parentElement.remove()">Delete</button>
+    `;
 
-<!-- ================= PREVIEW ================= -->
+    document.getElementById("skillsList").appendChild(div);
+}
 
-<section id="preview">
 
-  <h2>Your CV Preview</h2>
+/* ADD HOBBY */
 
-  <div
-    id="cvDocument"
-    class="modern-template"
-  >
+function addHobby() {
 
-    <div class="cv-header">
+    const div = document.createElement("div");
 
-      <img
-        id="cvPhoto"
-        class="cv-photo"
-        alt="Profile Photo"
-      >
+    div.className = "item";
 
-      <h1 id="cvName">Your Name</h1>
+    div.innerHTML = `
+        <input class="hobby"
+        placeholder="e.g. Reading">
 
-      <div id="cvContact"></div>
+        <button class="delete-btn"
+        onclick="this.parentElement.remove()">Delete</button>
+    `;
 
-      <div id="cvPersonal"></div>
+    document.getElementById("hobbiesList").appendChild(div);
+}
 
-    </div>
 
+/* ADD ACHIEVEMENT */
 
-    <div class="cv-section">
+function addAchievement() {
 
-      <h3>PROFILE</h3>
+    const div = document.createElement("div");
 
-      <div id="cvSummary"></div>
+    div.className = "item";
 
-    </div>
+    div.innerHTML = `
+        <textarea class="achievement"
+        placeholder="e.g. Successfully completed an engineering project"></textarea>
 
+        <button class="delete-btn"
+        onclick="this.parentElement.remove()">Delete</button>
+    `;
 
-    <div class="cv-section">
+    document.getElementById("achievementsList").appendChild(div);
+}
 
-      <h3>EDUCATION</h3>
 
-      <div id="cvEducation"></div>
+/* ADD DOCUMENT */
 
-    </div>
+function addDocument() {
 
+    const div = document.createElement("div");
 
-    <div class="cv-section">
+    div.className = "item";
 
-      <h3>EMPLOYMENT</h3>
+    div.innerHTML = `
+        <label>Document Name</label>
 
-      <div id="cvEmployment"></div>
+        <input class="document-name"
+        placeholder="e.g. KCSE Certificate">
 
-    </div>
+        <label>Upload Document</label>
 
+        <input type="file"
+        class="document-file"
+        accept=".pdf,.jpg,.jpeg,.png">
 
-    <div class="cv-section">
+        <button class="delete-btn"
+        onclick="this.parentElement.remove()">Delete</button>
+    `;
 
-      <h3>SKILLS</h3>
+    document.getElementById("documentsList").appendChild(div);
+}
 
-      <div id="cvSkills"></div>
 
-    </div>
+/* SAVE */
 
+function saveData() {
 
-    <div class="cv-section">
+    localStorage.setItem("cvName", document.getElementById("name").value);
+    localStorage.setItem("cvAddress", document.getElementById("address").value);
+    localStorage.setItem("cvTelephone", document.getElementById("telephone").value);
+    localStorage.setItem("cvEmail", document.getElementById("email").value);
+    localStorage.setItem("cvNationality", document.getElementById("nationality").value);
+    localStorage.setItem("cvDob", document.getElementById("dob").value);
+    localStorage.setItem("cvProfile", document.getElementById("profile").value);
 
-      <h3>INTERESTS & HOBBIES</h3>
+    if (photoData) {
+        localStorage.setItem("cvPhoto", photoData);
+    }
 
-      <div id="cvInterests"></div>
+    alert("CV information saved successfully!");
 
-    </div>
+}
 
 
-    <div class="cv-section">
+/* GENERATE CV */
 
-      <h3>CERTIFICATES & ACHIEVEMENTS</h3>
+function generateCV() {
 
-      <div id="cvCertificates"></div>
+    document.getElementById("cvPreview").style.display = "block";
 
-    </div>
+    document.getElementById("cvName").textContent =
+        document.getElementById("name").value || "Your Name";
 
+    document.getElementById("cvProfile").textContent =
+        document.getElementById("profile").value || "Professional profile";
 
-    <div class="cv-section">
+    const address = document.getElementById("address").value;
+    const phone = document.getElementById("telephone").value;
+    const email = document.getElementById("email").value;
+    const nationality = document.getElementById("nationality").value;
+    const dob = document.getElementById("dob").value;
 
-      <h3>SUPPORTING DOCUMENTS</h3>
+    document.getElementById("cvContact").textContent =
+        `${address} | ${phone} | ${email} | ${nationality} | ${dob}`;
 
-      <div id="cvDocuments"></div>
 
-    </div>
+    /* PHOTO */
 
+    const cvPhoto = document.getElementById("cvPhoto");
 
-    <div class="cv-section">
+    if (photoData) {
+        cvPhoto.src = photoData;
+        cvPhoto.style.display = "inline-block";
+    } else {
+        cvPhoto.style.display = "none";
+    }
 
-      <h3>REFEREES</h3>
 
-      <div id="cvReferees"></div>
+    /* EDUCATION */
 
-    </div>
+    let educationHTML = "";
 
-  </div>
+    document.querySelectorAll("#educationList .item").forEach(item => {
 
+        const school = item.querySelector(".edu-school").value;
+        const course = item.querySelector(".edu-course").value;
+        const start = item.querySelector(".edu-start").value;
+        const end = item.querySelector(".edu-end").value;
 
-  <button
-    type="button"
-    class="print-button"
-    onclick="printCV()"
-  >
-    Print / Save CV as PDF
-  </button>
+        educationHTML += `
+        <div class="cv-item">
+            <strong>${school}</strong><br>
+            ${course}<br>
+            ${start} - ${end}
+        </div>`;
+    });
 
-</section>
+    document.getElementById("cvEducation").innerHTML =
+        educationHTML || "No education information added.";
 
 
-<!-- ================= FOOTER ================= -->
+    /* EXPERIENCE */
 
-<footer>
+    let experienceHTML = "";
 
-  <p>© 2026 CVBoost. Build a better CV.</p>
+    document.querySelectorAll("#experienceList .item").forEach(item => {
 
-</footer>
+        const company = item.querySelector(".exp-company").value;
+        const position = item.querySelector(".exp-position").value;
+        const start = item.querySelector(".exp-start").value;
+        const end = item.querySelector(".exp-end").value;
+        const description = item.querySelector(".exp-description").value;
 
+        experienceHTML += `
+        <div class="cv-item">
+            <strong>${position}</strong> - ${company}<br>
+            ${start} - ${end}
+            <p>${description}</p>
+        </div>`;
+    });
 
-<!-- JAVASCRIPT -->
+    document.getElementById("cvExperience").innerHTML =
+        experienceHTML || "No work experience added.";
 
-<script src="script.js"></script>
+
+    /* SKILLS */
+
+    let skillsHTML = "<ul>";
+
+    document.querySelectorAll(".skill").forEach(input => {
+
+        if (input.value.trim()) {
+            skillsHTML += `<li>${input.value}</li>`;
+        }
+
+    });
+
+    skillsHTML += "</ul>";
+
+    document.getElementById("cvSkills").innerHTML =
+        skillsHTML;
+
+
+    /* HOBBIES */
+
+    let hobbiesHTML = "<ul>";
+
+    document.querySelectorAll(".hobby").forEach(input => {
+
+        if (input.value.trim()) {
+            hobbiesHTML += `<li>${input.value}</li>`;
+        }
+
+    });
+
+    hobbiesHTML += "</ul>";
+
+    document.getElementById("cvHobbies").innerHTML =
+        hobbiesHTML;
+
+
+    /* ACHIEVEMENTS */
+
+    let achievementsHTML = "<ul>";
+
+    document.querySelectorAll(".achievement").forEach(input => {
+
+        if (input.value.trim()) {
+            achievementsHTML += `<li>${input.value}</li>`;
+        }
+
+    });
+
+    achievementsHTML += "</ul>";
+
+    document.getElementById("cvAchievements").innerHTML =
+        achievementsHTML;
+
+
+    /* DOCUMENTS */
+
+    let documentsHTML = "<ul>";
+
+    document.querySelectorAll(".document-name").forEach(input => {
+
+        if (input.value.trim()) {
+            documentsHTML += `<li>${input.value}</li>`;
+        }
+
+    });
+
+    documentsHTML += "</ul>";
+
+    document.getElementById("cvDocuments").innerHTML =
+        documentsHTML;
+}
+
+
+/* LOAD SAVED INFORMATION */
+
+window.addEventListener("load", function() {
+
+    document.getElementById("name").value =
+        localStorage.getItem("cvName") || "";
+
+    document.getElementById("address").value =
+        localStorage.getItem("cvAddress") || "";
+
+    document.getElementById("telephone").value =
+        localStorage.getItem("cvTelephone") || "";
+
+    document.getElementById("email").value =
+        localStorage.getItem("cvEmail") || "";
+
+    document.getElementById("nationality").value =
+        localStorage.getItem("cvNationality") || "";
+
+    document.getElementById("dob").value =
+        localStorage.getItem("cvDob") || "";
+
+    document.getElementById("profile").value =
+        localStorage.getItem("cvProfile") || "";
+
+    const savedPhoto =
+        localStorage.getItem("cvPhoto");
+
+    if (savedPhoto) {
+
+        photoData = savedPhoto;
+
+        const img =
+            document.getElementById("photoPreview");
+
+        img.src = savedPhoto;
+        img.style.display = "block";
+    }
+
+});
+
+</script>
 
 </body>
 </html>
