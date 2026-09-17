@@ -1,13 +1,4 @@
-// ===============================
-// CVBOOST SCRIPT
-// ===============================
-
 let selectedTemplate = "modern";
-
-
-// ===============================
-// SCROLL TO BUILDER
-// ===============================
 
 function scrollToBuilder() {
   document.getElementById("builder").scrollIntoView({
@@ -15,50 +6,33 @@ function scrollToBuilder() {
   });
 }
 
-
-// ===============================
-// SELECT CV TEMPLATE
-// ===============================
-
 function selectTemplate(template, button) {
 
   selectedTemplate = template;
 
-  // Remove active state from all template buttons
   const buttons = document.querySelectorAll(".template-card");
 
   buttons.forEach(function(btn) {
     btn.classList.remove("active");
   });
 
-  // Add active state to selected button
   button.classList.add("active");
 
-  // Change CV preview design if preview already exists
   const cvDocument = document.getElementById("cvDocument");
 
-  if (cvDocument) {
+  cvDocument.classList.remove(
+    "modern-template",
+    "professional-template",
+    "creative-template"
+  );
 
-    cvDocument.classList.remove(
-      "modern-template",
-      "professional-template",
-      "creative-template"
-    );
-
-    cvDocument.classList.add(
-      selectedTemplate + "-template"
-    );
-  }
+  cvDocument.classList.add(
+    selectedTemplate + "-template"
+  );
 }
-
-
-// ===============================
-// GENERATE CV
-// ===============================
 
 function generateCV() {
 
-  // Get form values
   const name =
     document.getElementById("name").value.trim();
 
@@ -84,10 +58,6 @@ function generateCV() {
     document.getElementById("skills").value.trim();
 
 
-  // ===============================
-  // BASIC VALIDATION
-  // ===============================
-
   if (name === "") {
 
     alert("Please enter your full name.");
@@ -98,15 +68,9 @@ function generateCV() {
   }
 
 
-  // ===============================
-  // UPDATE CV
-  // ===============================
-
   document.getElementById("cvName").textContent =
     name || "Your Name";
 
-
-  // Contact information
 
   const contactParts = [];
 
@@ -126,33 +90,55 @@ function generateCV() {
     contactParts.join(" • ");
 
 
-  // Summary
-
   document.getElementById("cvSummary").textContent =
     summary || "Add your professional summary.";
 
-
-  // Education
 
   document.getElementById("cvEducation").textContent =
     education || "Add your education.";
 
 
-  // Work experience
-
   document.getElementById("cvExperience").textContent =
     experience || "Add your work experience.";
 
-
-  // Skills
 
   document.getElementById("cvSkills").textContent =
     skills || "Add your skills.";
 
 
-  // ===============================
-  // APPLY SELECTED TEMPLATE
-  // ===============================
+  // PROFILE PHOTO
+
+  const photoInput =
+    document.getElementById("photo");
+
+  const cvPhoto =
+    document.getElementById("cvPhoto");
+
+
+  if (photoInput && photoInput.files.length > 0) {
+
+    const reader = new FileReader();
+
+    reader.onload = function(event) {
+
+      cvPhoto.src = event.target.result;
+
+      cvPhoto.style.display = "block";
+
+    };
+
+    reader.readAsDataURL(photoInput.files[0]);
+
+  } else {
+
+    cvPhoto.src = "";
+
+    cvPhoto.style.display = "none";
+
+  }
+
+
+  // APPLY TEMPLATE
 
   const cvDocument =
     document.getElementById("cvDocument");
@@ -168,17 +154,13 @@ function generateCV() {
   );
 
 
-  // ===============================
   // SHOW PREVIEW
-  // ===============================
 
   const preview =
     document.getElementById("preview");
 
   preview.style.display = "block";
 
-
-  // Scroll to CV preview
 
   setTimeout(function() {
 
@@ -187,4 +169,4 @@ function generateCV() {
     });
 
   }, 100);
-}
+    }
