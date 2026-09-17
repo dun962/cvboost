@@ -5,15 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>CVBoost - Build Your Professional CV</title>
+  <title>CVBoost - Professional CV Builder</title>
 
   <meta name="description"
-    content="Create a professional CV in minutes with CVBoost.">
+    content="Create a professional CV with CVBoost.">
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+  <!-- NAVIGATION -->
 
   <header class="navbar">
 
@@ -22,74 +24,80 @@
     </div>
 
     <nav>
-      <a href="#features">Features</a>
       <a href="#builder">Create CV</a>
+      <a href="#features">Features</a>
     </nav>
 
-    <button class="nav-button" onclick="scrollToBuilder()">
+    <button
+      class="nav-button"
+      onclick="scrollToBuilder()">
       Start Building
     </button>
 
   </header>
 
 
+  <!-- HERO -->
+
   <section class="hero">
 
     <div class="hero-content">
 
       <div class="badge">
-        🌍 Built for job seekers worldwide
+        🌍 Professional CV Builder
       </div>
 
       <h1>
-        Build a CV that
-        <span>gets noticed.</span>
+        Build your
+        <span>professional CV.</span>
       </h1>
 
       <p class="hero-text">
-        Create a professional, job-ready CV in minutes.
-        Choose a template, enter your information and
-        prepare for your next opportunity.
+        Create a professional CV by entering your
+        personal information, education, employment,
+        skills and other achievements.
       </p>
 
       <div class="hero-buttons">
 
-        <button class="primary" onclick="scrollToBuilder()">
+        <button
+          class="primary"
+          onclick="scrollToBuilder()">
           Create My CV →
         </button>
 
-        <a href="#features" class="secondary">
+        <a
+          href="#features"
+          class="secondary">
           Explore Features
         </a>
 
       </div>
-
-      <p class="small-text">
-        ✓ Free to start &nbsp;&nbsp;
-        ✓ Mobile friendly &nbsp;&nbsp;
-        ✓ Worldwide
-      </p>
 
     </div>
 
   </section>
 
 
-  <section id="features" class="features-section">
+  <!-- FEATURES -->
+
+  <section
+    id="features"
+    class="features-section">
 
     <div class="section-heading">
 
       <p class="section-label">
-        WHY CVBOOST?
+        CVBOOST
       </p>
 
       <h2>
-        Everything you need to build your CV
+        Everything you need for your CV
       </h2>
 
       <p>
-        Create a professional CV quickly with simple
-        tools designed for modern job seekers.
+        Complete your information and create a
+        professional CV ready for applications.
       </p>
 
     </div>
@@ -98,40 +106,70 @@
     <div class="features">
 
       <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h3>Fast & Simple</h3>
+
+        <div class="feature-icon">
+          👤
+        </div>
+
+        <h3>
+          Personal Details
+        </h3>
+
         <p>
-          Enter your information and generate your CV
-          without complicated software.
+          Add your contact and personal information.
         </p>
+
       </div>
 
 
       <div class="feature-card">
-        <div class="feature-icon">📄</div>
-        <h3>Professional Design</h3>
+
+        <div class="feature-icon">
+          🎓
+        </div>
+
+        <h3>
+          Education
+        </h3>
+
         <p>
-          Present your education, experience and skills
-          in a clean professional format.
+          Add your courses, schools and years of study.
         </p>
+
       </div>
 
 
       <div class="feature-card">
-        <div class="feature-icon">📱</div>
-        <h3>Works on Mobile</h3>
+
+        <div class="feature-icon">
+          💼
+        </div>
+
+        <h3>
+          Employment
+        </h3>
+
         <p>
-          Build your CV from your phone, tablet or computer.
+          Add your employment history and experience.
         </p>
+
       </div>
 
 
       <div class="feature-card">
-        <div class="feature-icon">🌍</div>
-        <h3>Worldwide</h3>
+
+        <div class="feature-icon">
+          📎
+        </div>
+
+        <h3>
+          Documents
+        </h3>
+
         <p>
-          Designed for job seekers anywhere in the world.
+          Keep track of certificates and supporting documents.
         </p>
+
       </div>
 
     </div>
@@ -139,44 +177,63 @@
   </section>
 
 
-  <section id="builder" class="builder">
+  <!-- BUILDER -->
+
+  <section
+    id="builder"
+    class="builder">
 
     <div class="builder-heading">
 
       <p class="section-label">
-        GET STARTED
+        CREATE YOUR CV
       </p>
 
-      <h2>Create Your Professional CV</h2>
+      <h2>
+        Enter Your Information
+      </h2>
 
       <p>
-        Choose a template and enter your information.
+        Complete the sections below.
       </p>
 
     </div>
 
 
+    <!-- TEMPLATE -->
+
     <div class="template-section">
 
-      <h3>Choose a CV Template</h3>
+      <h3>
+        Choose a CV Template
+      </h3>
 
       <div class="template-options">
+
 
         <button
           type="button"
           class="template-card active"
-          onclick="selectTemplate('modern', this)"
-        >
+          onclick="selectTemplate('modern', this)">
 
-          <div class="template-preview modern-preview">
+          <div
+            class="template-preview modern-preview">
+
             <strong>CV</strong>
+
             <span></span>
             <span></span>
             <span></span>
+
           </div>
 
-          <b>Modern</b>
-          <small>Clean & simple</small>
+          <b>
+            Modern
+          </b>
+
+          <small>
+            Clean & simple
+          </small>
 
         </button>
 
@@ -184,18 +241,26 @@
         <button
           type="button"
           class="template-card"
-          onclick="selectTemplate('professional', this)"
-        >
+          onclick="selectTemplate('professional', this)">
 
-          <div class="template-preview professional-preview">
+          <div
+            class="template-preview professional-preview">
+
             <strong>CV</strong>
+
             <span></span>
             <span></span>
             <span></span>
+
           </div>
 
-          <b>Professional</b>
-          <small>Business style</small>
+          <b>
+            Professional
+          </b>
+
+          <small>
+            Business style
+          </small>
 
         </button>
 
@@ -203,18 +268,26 @@
         <button
           type="button"
           class="template-card"
-          onclick="selectTemplate('creative', this)"
-        >
+          onclick="selectTemplate('creative', this)">
 
-          <div class="template-preview creative-preview">
+          <div
+            class="template-preview creative-preview">
+
             <strong>CV</strong>
+
             <span></span>
             <span></span>
             <span></span>
+
           </div>
 
-          <b>Creative</b>
-          <small>Modern visual style</small>
+          <b>
+            Creative
+          </b>
+
+          <small>
+            Modern visual style
+          </small>
 
         </button>
 
@@ -223,98 +296,449 @@
     </div>
 
 
-    <label>Full Name</label>
+    <!-- PERSONAL INFORMATION -->
 
-    <input
-      id="name"
-      type="text"
-      placeholder="e.g. John Smith"
-    >
+    <div class="form-section">
 
+      <h3>
+        👤 Personal Information
+      </h3>
 
-    <label>Phone</label>
+      <label>
+        Full Name
+      </label>
 
-    <input
-      id="phone"
-      type="tel"
-      placeholder="e.g. +1 555 123 4567"
-    >
-
-
-    <label>Email</label>
-
-    <input
-      id="email"
-      type="email"
-      placeholder="e.g. john@example.com"
-    >
+      <input
+        id="name"
+        type="text"
+        placeholder="e.g. John Smith">
 
 
-    <label>Location</label>
+      <label>
+        Address
+      </label>
 
-    <input
-      id="location"
-      type="text"
-      placeholder="e.g. London, United Kingdom"
-    >
-
-
-    <label>Profile Photo</label>
-
-    <input
-      id="photo"
-      type="file"
-      accept="image/*"
-    >
-
-    <p class="photo-help">
-      Upload a professional photo for your CV.
-    </p>
+      <input
+        id="address"
+        type="text"
+        placeholder="e.g. P.O. Box 123, Nairobi">
 
 
-    <label>Professional Summary</label>
+      <label>
+        Telephone
+      </label>
 
-    <textarea
-      id="summary"
-      placeholder="Write a short description about yourself"
-    ></textarea>
-
-
-    <label>Education</label>
-
-    <textarea
-      id="education"
-      placeholder="Example: BSc Computer Science - University of..."
-    ></textarea>
+      <input
+        id="phone"
+        type="tel"
+        placeholder="e.g. +254 712 345 678">
 
 
-    <label>Work Experience</label>
+      <label>
+        Email
+      </label>
 
-    <textarea
-      id="experience"
-      placeholder="Describe your previous work experience"
-    ></textarea>
+      <input
+        id="email"
+        type="email"
+        placeholder="e.g. john@example.com">
 
 
-    <label>Skills</label>
+      <label>
+        Nationality
+      </label>
 
-    <textarea
-      id="skills"
-      placeholder="Example: Communication, Excel, Python, Customer Service"
-    ></textarea>
+      <input
+        id="nationality"
+        type="text"
+        placeholder="e.g. Kenyan">
 
+
+      <label>
+        Date of Birth
+      </label>
+
+      <input
+        id="dob"
+        type="date">
+
+
+      <label>
+        Profile Photo
+      </label>
+
+      <input
+        id="photo"
+        type="file"
+        accept="image/*">
+
+      <p class="photo-help">
+        Upload a professional profile photo.
+      </p>
+
+    </div>
+
+
+    <!-- PROFILE -->
+
+    <div class="form-section">
+
+      <h3>
+        📝 Profile
+      </h3>
+
+      <textarea
+        id="summary"
+        placeholder="Write a short professional profile about yourself...">
+      </textarea>
+
+    </div>
+
+
+    <!-- EDUCATION -->
+
+    <div class="form-section">
+
+      <h3>
+        🎓 Education
+      </h3>
+
+      <div id="educationContainer">
+
+        <div class="education-entry">
+
+          <label>
+            Year
+          </label>
+
+          <input
+            type="text"
+            class="education-year"
+            placeholder="e.g. 2022 - 2026">
+
+
+          <label>
+            Course / Qualification
+          </label>
+
+          <input
+            type="text"
+            class="education-course"
+            placeholder="e.g. B.Tech Electrical & Computer Engineering">
+
+
+          <label>
+            School / Institution
+          </label>
+
+          <input
+            type="text"
+            class="education-school"
+            placeholder="e.g. Kirinyaga University">
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="add-button"
+        onclick="addEducation()">
+
+        + Add Education
+
+      </button>
+
+    </div>
+
+
+    <!-- EMPLOYMENT -->
+
+    <div class="form-section">
+
+      <h3>
+        💼 Employment
+      </h3>
+
+      <div id="employmentContainer">
+
+        <div class="employment-entry">
+
+          <label>
+            Year / Period
+          </label>
+
+          <input
+            type="text"
+            class="employment-year"
+            placeholder="e.g. 2024 - 2026">
+
+
+          <label>
+            Job Title
+          </label>
+
+          <input
+            type="text"
+            class="employment-title"
+            placeholder="e.g. Sales Assistant">
+
+
+          <label>
+            Employer / Company
+          </label>
+
+          <input
+            type="text"
+            class="employment-company"
+            placeholder="e.g. ABC Company">
+
+
+          <label>
+            Responsibilities / Achievements
+          </label>
+
+          <textarea
+            class="employment-description"
+            placeholder="Describe your responsibilities and achievements...">
+          </textarea>
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="add-button"
+        onclick="addEmployment()">
+
+        + Add Employment
+
+      </button>
+
+    </div>
+
+
+    <!-- SKILLS -->
+
+    <div class="form-section">
+
+      <h3>
+        🛠️ Skills
+      </h3>
+
+      <textarea
+        id="skills"
+        placeholder="Example: Communication, Computer Skills, Leadership, Microsoft Office...">
+      </textarea>
+
+    </div>
+
+
+    <!-- INTERESTS -->
+
+    <div class="form-section">
+
+      <h3>
+        ❤️ Interests / Hobbies
+      </h3>
+
+      <textarea
+        id="interests"
+        placeholder="Example: Reading, Sports, Programming, Volunteering...">
+      </textarea>
+
+    </div>
+
+
+    <!-- CERTIFICATES -->
+
+    <div class="form-section">
+
+      <h3>
+        🏆 Certificates & Achievements
+      </h3>
+
+      <textarea
+        id="certificates"
+        placeholder="Example: Computer Applications Certificate - 2025">
+      </textarea>
+
+    </div>
+
+
+    <!-- DOCUMENTS -->
+
+    <div class="form-section">
+
+      <h3>
+        📎 Supporting Documents
+      </h3>
+
+      <p class="form-help">
+        Add certificates, degrees, transcripts or other
+        supporting documents.
+      </p>
+
+
+      <div id="documentsContainer">
+
+        <div class="document-entry">
+
+          <label>
+            Document Name
+          </label>
+
+          <input
+            type="text"
+            class="document-name"
+            placeholder="e.g. Degree Certificate">
+
+
+          <label>
+            Institution
+          </label>
+
+          <input
+            type="text"
+            class="document-institution"
+            placeholder="e.g. Kirinyaga University">
+
+
+          <label>
+            Year
+          </label>
+
+          <input
+            type="text"
+            class="document-year"
+            placeholder="e.g. 2026">
+
+
+          <label>
+            Upload Document
+          </label>
+
+          <input
+            type="file"
+            class="document-file"
+            accept=".pdf,.jpg,.jpeg,.png">
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="add-button"
+        onclick="addDocument()">
+
+        + Add Document
+
+      </button>
+
+    </div>
+
+
+    <!-- REFEREES -->
+
+    <div class="form-section">
+
+      <h3>
+        👥 Referees
+      </h3>
+
+      <div id="refereesContainer">
+
+        <div class="referee-entry">
+
+          <label>
+            Referee Name
+          </label>
+
+          <input
+            type="text"
+            class="referee-name"
+            placeholder="e.g. Jane Doe">
+
+
+          <label>
+            Position / Relationship
+          </label>
+
+          <input
+            type="text"
+            class="referee-position"
+            placeholder="e.g. Lecturer">
+
+
+          <label>
+            Organization
+          </label>
+
+          <input
+            type="text"
+            class="referee-organization"
+            placeholder="e.g. Kirinyaga University">
+
+
+          <label>
+            Telephone
+          </label>
+
+          <input
+            type="tel"
+            class="referee-phone"
+            placeholder="e.g. +254 712 345 678">
+
+
+          <label>
+            Email
+          </label>
+
+          <input
+            type="email"
+            class="referee-email"
+            placeholder="e.g. referee@example.com">
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="add-button"
+        onclick="addReferee()">
+
+        + Add Referee
+
+      </button>
+
+    </div>
+
+
+    <!-- GENERATE -->
 
     <button
       class="primary generate-button"
-      onclick="generateCV()"
-    >
+      onclick="generateCV()">
+
       Generate My CV →
+
     </button>
 
   </section>
 
 
-  <section id="preview" class="preview">
+  <!-- CV PREVIEW -->
+
+  <section
+    id="preview"
+    class="preview">
 
     <div class="preview-heading">
 
@@ -322,29 +746,36 @@
         PREVIEW
       </p>
 
-      <h2>Your Professional CV</h2>
+      <h2>
+        Your Professional CV
+      </h2>
 
     </div>
 
 
-    <div id="cvDocument" class="modern-template">
+    <div
+      id="cvDocument"
+      class="modern-template">
+
 
       <div class="cv-header">
 
-        <!-- PROFILE PHOTO -->
         <img
           id="cvPhoto"
           class="cv-photo"
           src=""
           alt="Profile Photo"
-          style="display: none;"
-        >
+          style="display:none;">
 
         <h1 id="cvName">
           Your Name
         </h1>
 
-        <p id="cvContact"></p>
+        <p id="cvContact">
+        </p>
+
+        <p id="cvPersonal">
+        </p>
 
       </div>
 
@@ -354,10 +785,12 @@
 
       <section class="cv-section">
 
-        <h3>PROFILE</h3>
+        <h3>
+          PROFILE
+        </h3>
 
         <p id="cvSummary">
-          Add your professional summary.
+          Add your professional profile.
         </p>
 
       </section>
@@ -365,29 +798,35 @@
 
       <section class="cv-section">
 
-        <h3>EDUCATION</h3>
+        <h3>
+          EDUCATION
+        </h3>
 
-        <p id="cvEducation">
+        <div id="cvEducation">
           Add your education.
-        </p>
+        </div>
 
       </section>
 
 
       <section class="cv-section">
 
-        <h3>WORK EXPERIENCE</h3>
+        <h3>
+          EMPLOYMENT
+        </h3>
 
-        <p id="cvExperience">
-          Add your work experience.
-        </p>
+        <div id="cvEmployment">
+          Add your employment history.
+        </div>
 
       </section>
 
 
       <section class="cv-section">
 
-        <h3>SKILLS</h3>
+        <h3>
+          SKILLS
+        </h3>
 
         <p id="cvSkills">
           Add your skills.
@@ -395,18 +834,61 @@
 
       </section>
 
+
+      <section class="cv-section">
+
+        <h3>
+          INTERESTS & HOBBIES
+        </h3>
+
+        <p id="cvInterests">
+          Add your interests.
+        </p>
+
+      </section>
+
+
+      <section class="cv-section">
+
+        <h3>
+          CERTIFICATES & ACHIEVEMENTS
+        </h3>
+
+        <p id="cvCertificates">
+          Add your certificates.
+        </p>
+
+      </section>
+
+
+      <section class="cv-section">
+
+        <h3>
+          REFEREES
+        </h3>
+
+        <div id="cvReferees">
+          Add your referees.
+        </div>
+
+      </section>
+
+
     </div>
 
 
     <button
       class="primary download-button"
-      onclick="window.print()"
-    >
+      onclick="window.print()">
+
       📥 Download / Print CV
+
     </button>
 
   </section>
 
+
+  <!-- FOOTER -->
 
   <footer>
 
