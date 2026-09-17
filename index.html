@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,7 +8,7 @@
   <title>CVBoost - Build Your Professional CV</title>
 
   <meta name="description"
-    content="Create a professional CV in minutes with CVBoost. Simple, modern and built for job seekers worldwide.">
+    content="Create a professional CV in minutes with CVBoost.">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -34,7 +34,7 @@
   </header>
 
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
 
     <div class="hero-content">
@@ -50,8 +50,8 @@
 
       <p class="hero-text">
         Create a professional, job-ready CV in minutes.
-        Enter your details, generate your CV and prepare
-        yourself for your next opportunity.
+        Choose a template, enter your information and
+        prepare for your next opportunity.
       </p>
 
       <div class="hero-buttons">
@@ -67,7 +67,9 @@
       </div>
 
       <p class="small-text">
-        ✓ Free to start &nbsp;&nbsp; ✓ Mobile friendly &nbsp;&nbsp; ✓ Worldwide
+        ✓ Free to start &nbsp;&nbsp;
+        ✓ Mobile friendly &nbsp;&nbsp;
+        ✓ Worldwide
       </p>
 
     </div>
@@ -89,8 +91,8 @@
       </h2>
 
       <p>
-        A simple CV builder designed to help job seekers
-        create professional applications quickly.
+        Create a professional CV quickly with simple
+        tools designed for modern job seekers.
       </p>
 
     </div>
@@ -100,15 +102,13 @@
 
       <div class="feature-card">
 
-        <div class="feature-icon">
-          ⚡
-        </div>
+        <div class="feature-icon">⚡</div>
 
         <h3>Fast & Simple</h3>
 
         <p>
-          Enter your information and generate a professional
-          CV without complicated software.
+          Enter your information and generate your CV
+          without complicated software.
         </p>
 
       </div>
@@ -116,15 +116,13 @@
 
       <div class="feature-card">
 
-        <div class="feature-icon">
-          📄
-        </div>
+        <div class="feature-icon">📄</div>
 
         <h3>Professional Design</h3>
 
         <p>
-          Create a clean CV that presents your education,
-          experience and skills clearly.
+          Present your education, experience and skills
+          in a clean professional format.
         </p>
 
       </div>
@@ -132,15 +130,12 @@
 
       <div class="feature-card">
 
-        <div class="feature-icon">
-          📱
-        </div>
+        <div class="feature-icon">📱</div>
 
         <h3>Works on Mobile</h3>
 
         <p>
-          Build your CV directly from your phone, tablet
-          or computer.
+          Build your CV from your phone, tablet or computer.
         </p>
 
       </div>
@@ -148,15 +143,12 @@
 
       <div class="feature-card">
 
-        <div class="feature-icon">
-          🌍
-        </div>
+        <div class="feature-icon">🌍</div>
 
         <h3>Worldwide</h3>
 
         <p>
-          CVBoost is designed for job seekers anywhere
-          in the world.
+          Designed for job seekers anywhere in the world.
         </p>
 
       </div>
@@ -178,11 +170,78 @@
       <h2>Create Your Professional CV</h2>
 
       <p>
-        Fill in your information below.
+        Choose a template and enter your information.
       </p>
 
     </div>
 
+
+    <!-- TEMPLATE SELECTOR -->
+    <div class="template-section">
+
+      <h3>Choose a CV Template</h3>
+
+      <div class="template-options">
+
+        <button
+          type="button"
+          class="template-card active"
+          onclick="selectTemplate('modern', this)"
+        >
+          <div class="template-preview modern-preview">
+            <strong>CV</strong>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <b>Modern</b>
+
+          <small>Clean & simple</small>
+        </button>
+
+
+        <button
+          type="button"
+          class="template-card"
+          onclick="selectTemplate('professional', this)"
+        >
+          <div class="template-preview professional-preview">
+            <strong>CV</strong>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <b>Professional</b>
+
+          <small>Business style</small>
+        </button>
+
+
+        <button
+          type="button"
+          class="template-card"
+          onclick="selectTemplate('creative', this)"
+        >
+          <div class="template-preview creative-preview">
+            <strong>CV</strong>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <b>Creative</b>
+
+          <small>Modern visual style</small>
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- FORM -->
 
     <label>Full Name</label>
 
@@ -276,43 +335,64 @@
     </div>
 
 
-    <div id="cvDocument">
+    <div id="cvDocument" class="modern-template">
 
-      <h1 id="cvName">
-        Your Name
-      </h1>
+      <div class="cv-header">
 
-      <p id="cvContact"></p>
+        <h1 id="cvName">
+          Your Name
+        </h1>
+
+        <p id="cvContact"></p>
+
+      </div>
+
 
       <hr>
 
 
-      <h3>PROFILE</h3>
+      <section class="cv-section">
 
-      <p id="cvSummary">
-        Add your professional summary.
-      </p>
+        <h3>PROFILE</h3>
 
+        <p id="cvSummary">
+          Add your professional summary.
+        </p>
 
-      <h3>EDUCATION</h3>
-
-      <p id="cvEducation">
-        Add your education.
-      </p>
+      </section>
 
 
-      <h3>WORK EXPERIENCE</h3>
+      <section class="cv-section">
 
-      <p id="cvExperience">
-        Add your work experience.
-      </p>
+        <h3>EDUCATION</h3>
+
+        <p id="cvEducation">
+          Add your education.
+        </p>
+
+      </section>
 
 
-      <h3>SKILLS</h3>
+      <section class="cv-section">
 
-      <p id="cvSkills">
-        Add your skills.
-      </p>
+        <h3>WORK EXPERIENCE</h3>
+
+        <p id="cvExperience">
+          Add your work experience.
+        </p>
+
+      </section>
+
+
+      <section class="cv-section">
+
+        <h3>SKILLS</h3>
+
+        <p id="cvSkills">
+          Add your skills.
+        </p>
+
+      </section>
 
     </div>
 
