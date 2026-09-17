@@ -1,130 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CVBoost | Create a Professional CV</title>
+
+  <title>CVBoost - Build Your Professional CV</title>
+
+  <meta name="description"
+    content="Create a professional CV in minutes with CVBoost. Simple, modern and built for job seekers worldwide.">
+
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-  <div class="logo">CVBoost</div>
-  <button onclick="scrollToBuilder()">Create CV</button>
-</header>
+  <!-- NAVIGATION -->
+  <header class="navbar">
 
-<section class="hero">
-  <div>
-    <p class="tag">🌍 Built for job seekers worldwide</p>
+    <div class="logo">
+      CV<span>Boost</span>
+    </div>
 
-    <h1>Create a professional CV in minutes.</h1>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#builder">Create CV</a>
+    </nav>
+
+    <button class="nav-button" onclick="scrollToBuilder()">
+      Start Building
+    </button>
+
+  </header>
+
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="badge">
+        🌍 Built for job seekers worldwide
+      </div>
+
+      <h1>
+        Build a CV that
+        <span>gets noticed.</span>
+      </h1>
+
+      <p class="hero-text">
+        Create a professional, job-ready CV in minutes.
+        Enter your details, generate your CV and prepare
+        yourself for your next opportunity.
+      </p>
+
+      <div class="hero-buttons">
+
+        <button class="primary" onclick="scrollToBuilder()">
+          Create My CV →
+        </button>
+
+        <a href="#features" class="secondary">
+          Explore Features
+        </a>
+
+      </div>
+
+      <p class="small-text">
+        ✓ Free to start &nbsp;&nbsp; ✓ Mobile friendly &nbsp;&nbsp; ✓ Worldwide
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FEATURES -->
+  <section id="features" class="features-section">
+
+    <div class="section-heading">
+
+      <p class="section-label">
+        WHY CVBOOST?
+      </p>
+
+      <h2>
+        Everything you need to build your CV
+      </h2>
+
+      <p>
+        A simple CV builder designed to help job seekers
+        create professional applications quickly.
+      </p>
+
+    </div>
+
+
+    <div class="features">
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          ⚡
+        </div>
+
+        <h3>Fast & Simple</h3>
+
+        <p>
+          Enter your information and generate a professional
+          CV without complicated software.
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          📄
+        </div>
+
+        <h3>Professional Design</h3>
+
+        <p>
+          Create a clean CV that presents your education,
+          experience and skills clearly.
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          📱
+        </div>
+
+        <h3>Works on Mobile</h3>
+
+        <p>
+          Build your CV directly from your phone, tablet
+          or computer.
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          🌍
+        </div>
+
+        <h3>Worldwide</h3>
+
+        <p>
+          CVBoost is designed for job seekers anywhere
+          in the world.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BUILDER -->
+  <section id="builder" class="builder">
+
+    <div class="builder-heading">
+
+      <p class="section-label">
+        GET STARTED
+      </p>
+
+      <h2>Create Your Professional CV</h2>
+
+      <p>
+        Fill in your information below.
+      </p>
+
+    </div>
+
+
+    <label>Full Name</label>
+
+    <input
+      id="name"
+      type="text"
+      placeholder="e.g. John Smith"
+    >
+
+
+    <label>Phone</label>
+
+    <input
+      id="phone"
+      type="tel"
+      placeholder="e.g. +1 555 123 4567"
+    >
+
+
+    <label>Email</label>
+
+    <input
+      id="email"
+      type="email"
+      placeholder="e.g. john@example.com"
+    >
+
+
+    <label>Location</label>
+
+    <input
+      id="location"
+      type="text"
+      placeholder="e.g. London, United Kingdom"
+    >
+
+
+    <label>Professional Summary</label>
+
+    <textarea
+      id="summary"
+      placeholder="Write a short description about yourself"
+    ></textarea>
+
+
+    <label>Education</label>
+
+    <textarea
+      id="education"
+      placeholder="Example: BSc Computer Science - University of..."
+    ></textarea>
+
+
+    <label>Work Experience</label>
+
+    <textarea
+      id="experience"
+      placeholder="Describe your previous work experience"
+    ></textarea>
+
+
+    <label>Skills</label>
+
+    <textarea
+      id="skills"
+      placeholder="Example: Communication, Excel, Python, Customer Service"
+    ></textarea>
+
+
+    <button
+      class="primary generate-button"
+      onclick="generateCV()"
+    >
+      Generate My CV →
+    </button>
+
+  </section>
+
+
+  <!-- CV PREVIEW -->
+  <section id="preview" class="preview">
+
+    <div class="preview-heading">
+
+      <p class="section-label">
+        PREVIEW
+      </p>
+
+      <h2>Your Professional CV</h2>
+
+    </div>
+
+
+    <div id="cvDocument">
+
+      <h1 id="cvName">
+        Your Name
+      </h1>
+
+      <p id="cvContact"></p>
+
+      <hr>
+
+
+      <h3>PROFILE</h3>
+
+      <p id="cvSummary">
+        Add your professional summary.
+      </p>
+
+
+      <h3>EDUCATION</h3>
+
+      <p id="cvEducation">
+        Add your education.
+      </p>
+
+
+      <h3>WORK EXPERIENCE</h3>
+
+      <p id="cvExperience">
+        Add your work experience.
+      </p>
+
+
+      <h3>SKILLS</h3>
+
+      <p id="cvSkills">
+        Add your skills.
+      </p>
+
+    </div>
+
+
+    <button
+      class="primary download-button"
+      onclick="window.print()"
+    >
+      📥 Download / Print CV
+    </button>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-logo">
+      CVBoost
+    </div>
 
     <p>
-      Enter your information and CVBoost will turn it
-      into a clean, professional CV ready for job applications.
+      Build your future. Build your CV.
     </p>
 
-    <button class="primary" onclick="scrollToBuilder()">
-      Create My CV
-    </button>
-  </div>
-</section>
+    <p class="copyright">
+      © 2026 CVBoost. All rights reserved.
+    </p>
 
-<section class="features">
+  </footer>
 
-  <div>
-    <h3>⚡ Fast</h3>
-    <p>Create your CV in minutes.</p>
-  </div>
 
-  <div>
-    <h3>📱 Mobile Friendly</h3>
-    <p>Works on your phone.</p>
-  </div>
-
-  <div>
-    <h3>📄 Professional</h3>
-    <p>Clean job-ready design.</p>
-  </div>
-
-</section>
-
-<section id="builder" class="builder">
-
-  <h2>Create Your CV</h2>
-
-  <label>Full Name</label>
-  <input id="name" placeholder="e.g. John Smith">
-
-  <label>Phone</label>
-  <input id="phone" placeholder="e.g. +1 555 123 4567">
-
-  <label>Email</label>
-  <input id="email" placeholder="e.g. john@example.com">
-
-  <label>Location</label>
-  <input id="location" placeholder="e.g. London, United Kingdom">
-
-  <label>Professional Summary</label>
-  <textarea id="summary"
-    placeholder="Write a short description about yourself"></textarea>
-
-  <label>Education</label>
-  <textarea id="education"
-    placeholder="Example: BSc Computer Science - University of ..."></textarea>
-
-  <label>Work Experience</label>
-  <textarea id="experience"
-    placeholder="Describe your previous work experience"></textarea>
-
-  <label>Skills</label>
-  <textarea id="skills"
-    placeholder="Example: Communication, Excel, Python, Customer Service"></textarea>
-
-  <button class="primary" onclick="generateCV()">
-    Generate CV
-  </button>
-
-</section>
-
-<section id="preview" class="preview">
-
-  <h2>Your CV</h2>
-
-  <div id="cvDocument">
-
-    <h1 id="cvName">Your Name</h1>
-
-    <p id="cvContact"></p>
-
-    <hr>
-
-    <h3>PROFILE</h3>
-    <p id="cvSummary"></p>
-
-    <h3>EDUCATION</h3>
-    <p id="cvEducation"></p>
-
-    <h3>WORK EXPERIENCE</h3>
-    <p id="cvExperience"></p>
-
-    <h3>SKILLS</h3>
-    <p id="cvSkills"></p>
-
-  </div>
-
-  <button class="primary" onclick="window.print()">
-    Download / Print CV
-  </button>
-
-</section>
-
-<footer>
-  <p>© 2026 CVBoost</p>
-</footer>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 
 </body>
+
 </html>
