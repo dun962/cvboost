@@ -338,7 +338,51 @@ body {
 }
 
 .builder input,
-.builder textarea {
+.builder textarea {/* PROFILE PHOTO */
+
+.photo-help {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #667085;
+}
+
+#photo {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d8dee9;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+
+#photo:hover {
+  border-color: #2563eb;
+}
+
+/* CV PROFILE PHOTO */
+
+.cv-photo {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+  display: block;
+  margin-bottom: 18px;
+}
+
+.modern-template .cv-photo {
+  border-color: #2563eb;
+}
+
+.professional-template .cv-photo {
+  border-color: #64748b;
+}
+
+.creative-template .cv-photo {
+  border-color: #f59e0b;
+}
   width: 100%;
   padding: 14px;
   border: 1px solid #d8dee9;
