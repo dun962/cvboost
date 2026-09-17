@@ -1,4 +1,4 @@
-      <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,7 +15,6 @@
 
 <body>
 
-  <!-- NAVIGATION -->
   <header class="navbar">
 
     <div class="logo">
@@ -34,7 +33,6 @@
   </header>
 
 
-  <!-- HERO -->
   <section class="hero">
 
     <div class="hero-content">
@@ -77,7 +75,6 @@
   </section>
 
 
-  <!-- FEATURES -->
   <section id="features" class="features-section">
 
     <div class="section-heading">
@@ -101,56 +98,40 @@
     <div class="features">
 
       <div class="feature-card">
-
         <div class="feature-icon">⚡</div>
-
         <h3>Fast & Simple</h3>
-
         <p>
           Enter your information and generate your CV
           without complicated software.
         </p>
-
       </div>
 
 
       <div class="feature-card">
-
         <div class="feature-icon">📄</div>
-
         <h3>Professional Design</h3>
-
         <p>
           Present your education, experience and skills
           in a clean professional format.
         </p>
-
       </div>
 
 
       <div class="feature-card">
-
         <div class="feature-icon">📱</div>
-
         <h3>Works on Mobile</h3>
-
         <p>
           Build your CV from your phone, tablet or computer.
         </p>
-
       </div>
 
 
       <div class="feature-card">
-
         <div class="feature-icon">🌍</div>
-
         <h3>Worldwide</h3>
-
         <p>
           Designed for job seekers anywhere in the world.
         </p>
-
       </div>
 
     </div>
@@ -158,7 +139,6 @@
   </section>
 
 
-  <!-- BUILDER -->
   <section id="builder" class="builder">
 
     <div class="builder-heading">
@@ -176,7 +156,6 @@
     </div>
 
 
-    <!-- TEMPLATE SELECTOR -->
     <div class="template-section">
 
       <h3>Choose a CV Template</h3>
@@ -188,6 +167,7 @@
           class="template-card active"
           onclick="selectTemplate('modern', this)"
         >
+
           <div class="template-preview modern-preview">
             <strong>CV</strong>
             <span></span>
@@ -196,8 +176,8 @@
           </div>
 
           <b>Modern</b>
-
           <small>Clean & simple</small>
+
         </button>
 
 
@@ -206,6 +186,7 @@
           class="template-card"
           onclick="selectTemplate('professional', this)"
         >
+
           <div class="template-preview professional-preview">
             <strong>CV</strong>
             <span></span>
@@ -214,8 +195,8 @@
           </div>
 
           <b>Professional</b>
-
           <small>Business style</small>
+
         </button>
 
 
@@ -224,6 +205,7 @@
           class="template-card"
           onclick="selectTemplate('creative', this)"
         >
+
           <div class="template-preview creative-preview">
             <strong>CV</strong>
             <span></span>
@@ -232,16 +214,14 @@
           </div>
 
           <b>Creative</b>
-
           <small>Modern visual style</small>
+
         </button>
 
       </div>
 
     </div>
 
-
-    <!-- FORM -->
 
     <label>Full Name</label>
 
@@ -276,17 +256,20 @@
       id="location"
       type="text"
       placeholder="e.g. London, United Kingdom"
-    ><label>Profile Photo</label>
+    >
 
-<input
-  id="photo"
-  type="file"
-  accept="image/*"
->
 
-<p class="photo-help">
-  Upload a professional photo for your CV.
-</p>
+    <label>Profile Photo</label>
+
+    <input
+      id="photo"
+      type="file"
+      accept="image/*"
+    >
+
+    <p class="photo-help">
+      Upload a professional photo for your CV.
+    </p>
 
 
     <label>Professional Summary</label>
@@ -331,7 +314,6 @@
   </section>
 
 
-  <!-- CV PREVIEW -->
   <section id="preview" class="preview">
 
     <div class="preview-heading">
@@ -348,6 +330,15 @@
     <div id="cvDocument" class="modern-template">
 
       <div class="cv-header">
+
+        <!-- PROFILE PHOTO -->
+        <img
+          id="cvPhoto"
+          class="cv-photo"
+          src=""
+          alt="Profile Photo"
+          style="display: none;"
+        >
 
         <h1 id="cvName">
           Your Name
@@ -417,7 +408,6 @@
   </section>
 
 
-  <!-- FOOTER -->
   <footer>
 
     <div class="footer-logo">
