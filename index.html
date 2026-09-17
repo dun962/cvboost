@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CVBoost | Create a Professional CV</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<header>
+  <div class="logo">CVBoost</div>
+  <button onclick="scrollToBuilder()">Create CV</button>
+</header>
+
+<section class="hero">
+  <div>
+    <p class="tag">🌍 Built for job seekers worldwide</p>
+
+    <h1>Create a professional CV in minutes.</h1>
+
+    <p>
+      Enter your information and CVBoost will turn it
+      into a clean, professional CV ready for job applications.
+    </p>
+
+    <button class="primary" onclick="scrollToBuilder()">
+      Create My CV
+    </button>
+  </div>
+</section>
+
+<section class="features">
+
+  <div>
+    <h3>⚡ Fast</h3>
+    <p>Create your CV in minutes.</p>
+  </div>
+
+  <div>
+    <h3>📱 Mobile Friendly</h3>
+    <p>Works on your phone.</p>
+  </div>
+
+  <div>
+    <h3>📄 Professional</h3>
+    <p>Clean job-ready design.</p>
+  </div>
+
+</section>
+
+<section id="builder" class="builder">
+
+  <h2>Create Your CV</h2>
+
+  <label>Full Name</label>
+  <input id="name" placeholder="e.g. John Smith">
+
+  <label>Phone</label>
+  <input id="phone" placeholder="e.g. +1 555 123 4567">
+
+  <label>Email</label>
+  <input id="email" placeholder="e.g. john@example.com">
+
+  <label>Location</label>
+  <input id="location" placeholder="e.g. London, United Kingdom">
+
+  <label>Professional Summary</label>
+  <textarea id="summary"
+    placeholder="Write a short description about yourself"></textarea>
+
+  <label>Education</label>
+  <textarea id="education"
+    placeholder="Example: BSc Computer Science - University of ..."></textarea>
+
+  <label>Work Experience</label>
+  <textarea id="experience"
+    placeholder="Describe your previous work experience"></textarea>
+
+  <label>Skills</label>
+  <textarea id="skills"
+    placeholder="Example: Communication, Excel, Python, Customer Service"></textarea>
+
+  <button class="primary" onclick="generateCV()">
+    Generate CV
+  </button>
+
+</section>
+
+<section id="preview" class="preview">
+
+  <h2>Your CV</h2>
+
+  <div id="cvDocument">
+
+    <h1 id="cvName">Your Name</h1>
+
+    <p id="cvContact"></p>
+
+    <hr>
+
+    <h3>PROFILE</h3>
+    <p id="cvSummary"></p>
+
+    <h3>EDUCATION</h3>
+    <p id="cvEducation"></p>
+
+    <h3>WORK EXPERIENCE</h3>
+    <p id="cvExperience"></p>
+
+    <h3>SKILLS</h3>
+    <p id="cvSkills"></p>
+
+  </div>
+
+  <button class="primary" onclick="window.print()">
+    Download / Print CV
+  </button>
+
+</section>
+
+<footer>
+  <p>© 2026 CVBoost</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
